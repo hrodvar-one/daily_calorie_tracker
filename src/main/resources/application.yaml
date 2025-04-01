@@ -1,0 +1,6 @@
+server:
+  port: 8787
+
+spring:
+  application:
+    name: daily_calorie_tracker
