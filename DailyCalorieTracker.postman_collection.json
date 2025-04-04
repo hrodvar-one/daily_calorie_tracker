@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "Daily Calorie Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "\ud83d\udc64 Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8787/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8787",
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\\u0418\\u0432\\u0430\\u043d\",\n  \"email\": \"ivan@example.com\",\n  \"age\": 30,\n  \"gender\": \"MALE\",\n  \"weight\": 75.5,\n  \"height\": 180,\n  \"purpose\": \"MAINTAIN\"\n}"
+        }
+      }
+    },
+    {
+      "name": "\ud83c\udf7d\ufe0f Create Meal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8787/api/meals",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8787",
+          "path": [
+            "api",
+            "meals"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\\u041e\\u0432\\u0441\\u044f\\u043d\\u043a\\u0430\",\n  \"calories\": 110,\n  \"proteins\": 3.5,\n  \"fats\": 1.2,\n  \"carbohydrates\": 21.0\n}"
+        }
+      }
+    },
+    {
+      "name": "\ud83c\udf74 Add Food Intake",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8787/api/food-intakes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8787",
+          "path": [
+            "api",
+            "food-intakes"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"intakeTime\": \"2025-04-04T08:30:00\",\n  \"meals\": [\n    {\n      \"mealId\": 1,\n      \"portion\": 1.0\n    },\n    {\n      \"mealId\": 2,\n      \"portion\": 0.5\n    }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "name": "\ud83d\udcca Daily Report",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8787/api/reports/daily?userId=1&date=2025-04-04",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8787",
+          "path": [
+            "api",
+            "reports",
+            "daily"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "1"
+            },
+            {
+              "key": "date",
+              "value": "2025-04-04"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "\ud83d\udd53 Food History",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8787/api/reports/history?userId=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8787",
+          "path": [
+            "api",
+            "reports",
+            "history"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

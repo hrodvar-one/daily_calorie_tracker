@@ -7,6 +7,7 @@ CREATE TABLE users (
     weight DECIMAL(5,2) NOT NULL,
     height INTEGER NOT NULL,
     purpose VARCHAR(20) NOT NULL CHECK (purpose IN ('LOSE_WEIGHT', 'MAINTAIN', 'GAIN_WEIGHT')),
+    daily_calorie_norm INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

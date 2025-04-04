@@ -40,9 +40,29 @@ public class UserEntity {
     @Column(nullable = false)
     private String purpose;
 
+    @Column(name = "daily_calorie_norm")
+    private Integer dailyCalorieNorm;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    public void calculateDailyCalorieNorm() {
+        double bmr;
+        if (gender.equalsIgnoreCase("MALE")) {
+            bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+        } else {
+            bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+        }
+
+        switch (purpose.toUpperCase()) {
+            case "LOSE_WEIGHT" -> bmr *= 0.85;
+            case "GAIN_WEIGHT" -> bmr *= 1.15;
+            default -> {}
+        }
+
+        this.dailyCalorieNorm = (int) bmr;
+    }
 }
