@@ -1,0 +1,8 @@
+CREATE TABLE food_intakes (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    intake_time TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_food_intake_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

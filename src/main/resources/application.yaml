@@ -4,3 +4,24 @@ server:
 spring:
   application:
     name: daily_calorie_tracker
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/daily_calorie_tracker_db
+    user: postgres
+    password: password
+    locations: classpath:db/migration
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/daily_calorie_tracker_db
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
